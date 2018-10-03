@@ -19,46 +19,35 @@ public class PassengerServiceImpl implements PassengerService {
 	List<Passenger> passengers = new ArrayList<>();
 	int currentId = 123;
 
-//	public List<Passenger> getPassengers(int start, int size) {
-//		System.out.println(start);
-//		System.out.println(size);
-//		return passengers;
-//	}
+    public List<Passenger> getPassengers(int start, int size) {
 
-    public List<Passenger> getPassengers() {
+        System.out.println(size);
+        System.out.println(start);
         return passengers;
     }
 
-	public Passenger addPassenger(Passenger passenger) {
+    public void addPassenger(String firstName, String lastName, String agent, HttpHeaders headers) {
 
-        passenger.setId(currentId++);
-        passengers.add(passenger);
-        return passenger;
-	}
+        System.out.println(firstName);
+        System.out.println(lastName);
 
-//    public void addPassenger(String firstName, String lastName, String agent, HttpHeaders headers) {
-//        System.out.println(firstName);
-//        System.out.println(lastName);
-//
-//        System.out.println(agent);
-//
-//        MultivaluedMap<String, String> allHeaders = headers.getRequestHeaders();
-//        Set<String> headerKeys = allHeaders.keySet();
-//        for (String key : headerKeys) {
-//            System.out.println(key);
-//            System.out.println(headers.getHeaderString(key));
-//        }
-//
-//        Map<String, Cookie> cookies = headers.getCookies();
-//        Set<String> cookieKeys = cookies.keySet();
-//        for (String eachCookieKey : cookieKeys) {
-//            System.out.println("------------------Cookies----------------");
-//            System.out.println(eachCookieKey);
-//            System.out.println(cookies.get(eachCookieKey).getValue());
-//        }
-//
-//    }
+        System.out.println(agent);
 
+        MultivaluedMap<String, String> allHeaders = headers.getRequestHeaders();
+        Set<String> headerKeys = allHeaders.keySet();
+        for (String key : headerKeys) {
+            System.out.println(key);
+            System.out.println(headers.getHeaderString(key));
+        }
+
+        Map<String, Cookie> cookies = headers.getCookies();
+        Set<String> cookieKeys = cookies.keySet();
+        for (String eachCookieKey : cookieKeys) {
+            System.out.println("------------------Cookies----------------");
+            System.out.println(eachCookieKey);
+            System.out.println(cookies.get(eachCookieKey).getValue());
+        }
+    }
 }
 
 

@@ -28,8 +28,7 @@ public interface PassengerService {
 	 */
 	@Path("/passengers")
 	@GET
-    List<Passenger> getPassengers();
-	//List<Passenger> getPassengers(@QueryParam("start") int start, @QueryParam("size") int size);
+	List<Passenger> getPassengers(@QueryParam("start") int start, @QueryParam("size") int size);
 
 	/**
 	 * 	Add a passenger to the list of passengers.
@@ -40,6 +39,5 @@ public interface PassengerService {
 	 */
 	@Path("/passengers")
 	@POST
-    Passenger addPassenger(Passenger passenger);
-	//void addPassenger(@FormParam("firstName") String firstName, @FormParam("lastName") String lastName, @HeaderParam("agent") String agent, @Context HttpHeaders headers);
+	void addPassenger(@FormParam("firstName") String firstName, @FormParam("lastName") String lastName, @HeaderParam("agent") String agent, @Context HttpHeaders headers);
 }
